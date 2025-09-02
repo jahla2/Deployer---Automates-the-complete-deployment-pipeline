@@ -1,0 +1,40 @@
+{
+  "registry": {
+    "host": "prod-registry.example.com",
+    "username": "registry_user",
+    "password": "DummyPassword123!"
+  },
+  "ssh": {
+    "host": "192.168.1.100",
+    "username": "appuser",
+    "port": 22,
+    "password": "DummyPassword123!",
+    "key_file": ""
+  },
+  "services": {
+    "cefero.docportal.api": {
+      "service_name": "cefero.docportal.api",
+      "image_name": "cefero.docportal.api",
+      "build_path": "C:\\REPSOFT SERVICE\\Cefero.Platform",
+      "container_name": "cefero.docportal.api",
+      "docker_run_args": "--volumes-from docportal-vols --env-file /etc/cefero/docportal.env -p 7067:80",
+      "health_timeout": 30
+    },
+    "microsrv": {
+      "service_name": "microsrv",
+      "image_name": "microsrv",
+      "build_path": "./microsrv",
+      "container_name": "microsrv",
+      "docker_run_args": "--volumes-from docportal-vols --env-file /etc/cefero/microsrv.env --restart unless-stopped",
+      "health_timeout": 90
+    },
+    "doctrllm": {
+      "service_name": "doctrllm",
+      "image_name": "doctrllm",
+      "build_path": "",
+      "container_name": "doctrllm",
+      "docker_run_args": "-p 8000:8000",
+      "health_timeout": 30
+    }
+  }
+}
