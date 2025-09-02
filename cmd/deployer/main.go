@@ -15,7 +15,7 @@ import (
 
 func main() {
     var (
-        configFile   = flag.String("config", "config.json", "Configuration file path")
+        configFile   = flag.String("config", "deployment.config.json", "Configuration file path")
         service      = flag.String("service", "", "Service name to deploy")
         version      = flag.String("version", "", "Version tag for the image")
         buildPath    = flag.String("build-path", "", "Path where to run docker build (optional, overrides config)")
@@ -46,8 +46,8 @@ func main() {
             cli.RunInteractiveMode(*configFile)
             return
         }
-        fmt.Println("Usage: deployer -service <service-name> -version <version> [-config config.json] [-build-path /path/to/build] [-dry-run]")
-        fmt.Println("       deployer -list [-config config.json]")
+        fmt.Println("Usage: deployer -service <service-name> -version <version> [-config deployment.config.json] [-build-path /path/to/build] [-dry-run]")
+        fmt.Println("       deployer -list [-config deployment.config.json]")
         os.Exit(1)
     }
 
