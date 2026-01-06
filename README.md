@@ -1,6 +1,6 @@
 # Deployer v0.1 - Repsoft Limited
 
-A professional, interactive command-line deployment tool that automates Docker container deployments to remote servers with colorful interface and real-time progress tracking.
+A professional, interactive command-line deployment tool that automates Docker container deployments to remote servers with real-time progress tracking.
 
 ## Table of Contents
 
